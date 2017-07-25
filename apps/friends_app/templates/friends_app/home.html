@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Friends!</h1>
+
+    <a href="/show">View Your Friends</a>
+    <a href="/addFriend">Add a Friend</a>
+    
+    <h4>Recent People:</h4>
+    {% for folks in people %}
+        <p>{{folks.first_name}} {{folks.last_name}}, added on {{folks.created_at}}</p>
+    {% endfor %}
+    <br>
+    <a href='/logout'>Logout</a>
+</body>
+</html>
+

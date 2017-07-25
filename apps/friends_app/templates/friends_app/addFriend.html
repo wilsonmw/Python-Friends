@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add a Friend!</h1>
+
+    <h4>Friends you can add:</h4>
+    {% for friend in friends %}
+        {{friend.first_name}} {{friend.last_name}}
+        <form action='/add' method='POST'>
+            {% csrf_token %}
+            <input type='hidden' name='friendId' value='{{friend.id}}'>
+            <input type='submit' value='Add This Friend!'>
+        </form>
+        <br>
+    {% endfor %}
+    <a href='/home'>Go Back...</a>
+</body>
+</html>
